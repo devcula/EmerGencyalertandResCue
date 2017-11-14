@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "397987098504",
+    "project_id": "emergency-alert-and-rescue"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397987098504:android:ccd699c8d4bdb4a8",
+        "android_client_info": {
+          "package_name": "com.devcula.ear"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397987098504-23poi00q24772gnebuu1lhcck38k2g5j.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "397987098504-tropq5lajcp9rk9mebgnnvv8afvg1is4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devcula.ear",
+            "certificate_hash": "2ae4ed9a01e6830ab71930498a8c02aa55080c44"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa7MPm6QYih69iWvuClnXkstgG-eVoLMM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
