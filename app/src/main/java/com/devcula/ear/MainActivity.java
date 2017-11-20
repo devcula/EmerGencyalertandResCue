@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements
                 .build();
 
         // Customizing G+ button
-        btnSignIn.setSize(SignInButton.SIZE_STANDARD);
+        btnSignIn.setSize(SignInButton.SIZE_WIDE);
         btnSignIn.setScopes(gso.getScopeArray());
     }
 
