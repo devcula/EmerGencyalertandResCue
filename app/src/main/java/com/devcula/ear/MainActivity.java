@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-
     private void signOut() {
+        FirebaseAuth.getInstance().signOut();
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void revokeAccess() {
+        FirebaseUser currentUser=mAuth.getCurrentUser();
+        currentUser.delete();
         Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
