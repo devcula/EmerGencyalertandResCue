@@ -81,6 +81,6 @@
         android:visibility="gone"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"/>
-    
+
 
 </LinearLayout>
