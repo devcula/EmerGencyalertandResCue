@@ -7,6 +7,17 @@
     android:padding="16dp"
     tools:context=".MainActivity" >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to EAR"
+        android:textSize="40sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        />
+
     <LinearLayout
         android:id="@+id/llProfile"
         android:layout_width="fill_parent"
@@ -47,23 +58,28 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/btn_sign_in"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/btn_sign_out"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_logout_from_google"
         android:visibility="gone"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/btn_revoke_access"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_revoke_access"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"/>
 
 </LinearLayout>
