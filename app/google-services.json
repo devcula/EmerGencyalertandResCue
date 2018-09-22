@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "397987098504",
-    "project_id": "emergency-alert-and-rescue"
+    "firebase_url": "https://emergency-alert-and-rescue.firebaseio.com",
+    "project_id": "emergency-alert-and-rescue",
+    "storage_bucket": "emergency-alert-and-rescue.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "397987098504-lco10nc1o2nm5cp32ia7a0kc4vlmnpvf.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "397987098504-23poi00q24772gnebuu1lhcck38k2g5j.apps.googleusercontent.com",
           "client_type": 3
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397987098504-lco10nc1o2nm5cp32ia7a0kc4vlmnpvf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
