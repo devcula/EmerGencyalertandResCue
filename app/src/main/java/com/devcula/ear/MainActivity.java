@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements
     private ProgressDialog mProgressDialog;
 
     private SignInButton btnSignIn;
-    private Button btnSignOut, btnRevokeAccess;
+    private Button btnSignOut, btnRevokeAccess,btnHomeScreen;
     private LinearLayout llProfileLayout;
     private ImageView imgProfilePic;
     private TextView txtName, txtEmail;
@@ -65,10 +65,11 @@ public class MainActivity extends AppCompatActivity implements
         imgProfilePic = (ImageView) findViewById(R.id.imgProfilePic);
         txtName = (TextView) findViewById(R.id.txtName);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
-
+        btnHomeScreen=(Button)findViewById(R.id.btn_homescreen);
         btnSignIn.setOnClickListener(this);
         btnSignOut.setOnClickListener(this);
         btnRevokeAccess.setOnClickListener(this);
+        btnHomeScreen.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -92,8 +93,8 @@ public class MainActivity extends AppCompatActivity implements
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-
     private void signOut() {
+        FirebaseAuth.getInstance().signOut();
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -104,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void revokeAccess() {
+        mAuth=FirebaseAuth.getInstance();
+        FirebaseUser user=mAuth.getCurrentUser();
+        user.delete();
         Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -111,6 +115,10 @@ public class MainActivity extends AppCompatActivity implements
                         updateUI(false);
                     }
                 });
+    }
+
+    private void launch_homescreen(){
+        startActivity(new Intent(MainActivity.this,HomeScreen.class));
     }
 
     private void handleSignInResult(GoogleSignInAccount acct) {
@@ -160,6 +168,10 @@ public class MainActivity extends AppCompatActivity implements
             case R.id.btn_revoke_access:
                 revokeAccess();
                 break;
+
+            case R.id.btn_homescreen:
+                launch_homescreen();
+                break;
         }
     }
 
@@ -195,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements
             Log.d(TAG, "Got cached sign-in");
             GoogleSignInResult result = opr.get();
             handleSignInResult(result.getSignInAccount());
+            mAuth=FirebaseAuth.getInstance();
             FirebaseUser currentUser = mAuth.getCurrentUser();
         } else {
             // If the user has not previously signed in on this device or the sign-in has expired,
@@ -222,6 +235,7 @@ public class MainActivity extends AppCompatActivity implements
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
+                            mAuth=FirebaseAuth.getInstance();
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                         } else {
@@ -266,11 +280,13 @@ public class MainActivity extends AppCompatActivity implements
             btnSignOut.setVisibility(View.VISIBLE);
             btnRevokeAccess.setVisibility(View.VISIBLE);
             llProfileLayout.setVisibility(View.VISIBLE);
+            btnHomeScreen.setVisibility(View.VISIBLE);
         } else {
             btnSignIn.setVisibility(View.VISIBLE);
             btnSignOut.setVisibility(View.GONE);
             btnRevokeAccess.setVisibility(View.GONE);
             llProfileLayout.setVisibility(View.GONE);
+            btnHomeScreen.setVisibility(View.GONE);
         }
     }
 }
